@@ -1,11 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Assistant</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Assistant Support Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+    <header>
+        <div class="page-wrapper top-bar">
+            <a class="brand" href="#hero">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="6" y="10" width="52" height="44" rx="12" ry="12" fill="url(#grad)" />
+                    <path d="M19 27h26" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
+                    <path d="M19 34h18" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
+                    <path d="M19 41h11" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="grad" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3a6ff8" />
+                            <stop offset="1" stop-color="#264fd1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                Student Assistant Hub
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Primary" class="nav">
+                <ul class="nav-list">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Key Features</a></li>
+                    <li><a href="#workflow">Workflow</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#cta">Demo</a></li>
+                </ul>
+                <a class="login-btn" href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="page-wrapper hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Research Capstone Highlight</p>
+                <h1>
+                    Development of <span>Web-based System</span> for Student Assistant Application &amp; Streamlined Support Services
+                </h1>
+                <p>
+                    A unified digital platform that modernizes student assistant recruitment, automates compliance workflows, and centralizes student support delivery for a data-informed campus experience.
+                </p>
+                <div class="button-group">
+                    <a class="primary-btn" href="#cta">Request Interactive Demo</a>
+                    <a class="secondary-btn" href="#workflow">See How It Works</a>
+                </div>
+            </div>
+            <aside class="hero-card" aria-label="Solution highlights">
+                <h3>Why institutions choose our solution</h3>
+                <ul class="checklist">
+                    <li>End-to-end visibility for coordinators and program heads</li>
+                    <li>Automated eligibility validation and scheduling</li>
+                    <li>Consolidated communication between offices and student assistants</li>
+                </ul>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>60%</strong>
+                        Faster application review cycle
+                    </div>
+                    <div class="hero-stat">
+                        <strong>24/7</strong>
+                        Self-service support center
+                    </div>
+                    <div class="hero-stat">
+                        <strong>360°</strong>
+                        Engagement visibility
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section id="overview" class="page-wrapper">
+            <div class="section-heading">
+                <h2>Purpose &amp; Objectives</h2>
+                <p>Transform the manual student assistant program into a transparent, efficient, and data-driven experience for both students and administrators.</p>
+            </div>
+            <div class="split-section">
+                <article class="card">
+                    <h3>The Challenge</h3>
+                    <p class="muted-text">
+                        Existing application and support workflows rely on paper forms, siloed communication, and fragmented monitoring. This often leads to delayed placements, incomplete documentation, and limited visibility of student assistant support outcomes.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>The Solution</h3>
+                    <p class="muted-text">
+                        Our web-based system digitizes end-to-end processes—allowing students to apply, get matched, and receive support seamlessly while administrators orchestrate approvals, documentation, and analytics in one place.
+                    </p>
+                    <ul class="pill-list" aria-label="Core outcomes">
+                        <li>Centralized Application Portal</li>
+                        <li>Real-time Status Tracking</li>
+                        <li>Support Services Directory</li>
+                        <li>Performance Dashboards</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="features" class="page-wrapper features">
+            <div class="section-heading">
+                <h2>Key Capabilities</h2>
+                <p>Designed to delight students, streamline coordinators’ workload, and inform decision-makers.</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">1</div>
+                    <h3>Smart Application Intake</h3>
+                    <p>Guided forms, eligibility checks, and required document uploads ensure complete submissions the first time.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">2</div>
+                    <h3>Automated Routing &amp; Approvals</h3>
+                    <p>Configurable workflows notify stakeholders, capture digital signatures, and maintain auditable trails.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">3</div>
+                    <h3>Support Service Matching</h3>
+                    <p>Recommends scholarships, allowances, and mentorship based on student profiles and program availability.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">4</div>
+                    <h3>Engagement &amp; Timesheet Tracking</h3>
+                    <p>Log duties, hours rendered, and supervisor feedback through intuitive dashboards and reminders.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="workflow" class="page-wrapper">
+            <div class="section-heading">
+                <h2>Streamlined Workflow</h2>
+                <p>Every stakeholder stays informed with guided steps, notifications, and real-time status visibility.</p>
+            </div>
+            <div class="process-grid">
+                <article class="process-step">
+                    <span>01</span>
+                    <h3>Application Launch</h3>
+                    <p>Students create profiles, submit requirements, and choose desired placements or support services.</p>
+                </article>
+                <article class="process-step">
+                    <span>02</span>
+                    <h3>Validation &amp; Assessment</h3>
+                    <p>Coordinators verify eligibility, schedule interviews, and evaluate qualifications via built-in rubrics.</p>
+                </article>
+                <article class="process-step">
+                    <span>03</span>
+                    <h3>Placement &amp; Onboarding</h3>
+                    <p>Approved students receive assignment notifications, digital contracts, and onboarding checklists.</p>
+                </article>
+                <article class="process-step">
+                    <span>04</span>
+                    <h3>Support Delivery</h3>
+                    <p>Support offices log assistance rendered, monitor compliance, and handle escalations collaboratively.</p>
+                </article>
+                <article class="process-step">
+                    <span>05</span>
+                    <h3>Insights &amp; Reporting</h3>
+                    <p>Dashboards present KPIs on placements, workloads, fulfillment, and student satisfaction trends.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="modules" class="page-wrapper">
+            <div class="section-heading">
+                <h2>Core Modules</h2>
+                <p>Modular architecture ensures each campus unit can adopt what they need while sharing a common data foundation.</p>
+            </div>
+            <div class="matrix">
+                <article class="matrix-card">
+                    <h3>Student Portal</h3>
+                    <ul>
+                        <li>Dynamic profile &amp; requirement checklist</li>
+                        <li>Application tracking with milestone alerts</li>
+                        <li>Timesheet logging and supervisor feedback</li>
+                    </ul>
+                </article>
+                <article class="matrix-card">
+                    <h3>Coordinator Console</h3>
+                    <ul>
+                        <li>Automated applicant scoring &amp; routing</li>
+                        <li>Placement management and role assignment</li>
+                        <li>Incident reporting and escalation tools</li>
+                    </ul>
+                </article>
+                <article class="matrix-card">
+                    <h3>Support Services Hub</h3>
+                    <ul>
+                        <li>Unified case management across offices</li>
+                        <li>Knowledge base and resource library</li>
+                        <li>Impact measurement and service SLAs</li>
+                    </ul>
+                </article>
+                <article class="matrix-card">
+                    <h3>Executive Insights</h3>
+                    <ul>
+                        <li>Real-time dashboards and exportable reports</li>
+                        <li>Budget allocation and utilization overview</li>
+                        <li>Program health and retention analytics</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="cta" class="page-wrapper">
+            <div class="cta">
+                <h2>Ready to explore the full experience?</h2>
+                <p>Request a guided walkthrough, access the interactive prototype, or collaborate with us to deploy the platform on campus.</p>
+                <div class="cta-actions">
+                    <a class="primary-btn" href="mailto:research-team@example.com?subject=Student Assistant System Demo Request">Book a Research Presentation</a>
+                    <a class="secondary-btn secondary-btn--ghost" href="#overview">Download Project Brief</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="page-wrapper">
+            <p>&copy; <span id="year"></span> Development of Web-based System for Student Assistant Application and Streamlined Student Support Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
