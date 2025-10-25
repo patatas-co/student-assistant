@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Assistant Login</title>
+    <title>Student Assistant Registration</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="login-body">
@@ -30,25 +30,30 @@
     <main class="login-main">
         <section class="page-wrapper login-wrapper">
             <div class="login-hero">
-                <h1>Student Assistant Login</h1>
-                <p class="muted-text">Access your dashboard to manage applications, timesheets, and support services securely.</p>
+                <h1>Student Assistant Registration</h1>
+                <p class="muted-text">Create an account to apply for assistant positions and access support services.</p>
                 <ul class="login-highlights">
-                    <li>Track application status and requirements</li>
-                    <li>Submit weekly timesheets for approval</li>
-                    <li>Connect with support offices in one portal</li>
+                    <li>Apply for student assistant roles</li>
+                    <li>Track application progress</li>
+                    <li>Access personalized support resources</li>
                 </ul>
             </div>
             <div class="login-card">
                 <form class="login-form" action="#" method="post">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required />
+
                     <label for="email">Institutional Email</label>
                     <input id="email" name="email" type="email" placeholder="name@student.edu" required />
 
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter your password" required />
+                    <input id="password" name="password" type="password" placeholder="Create a password" required />
 
-                    <button type="submit" class="primary-btn">Log In</button>
-                    <a class="form-link" href="#">Forgot your password?</a>
-                    <a class="form-link" href="registration.html">Don't have an account? Register</a>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" required />
+
+                    <button type="submit" class="primary-btn">Register</button>
+                    <a class="form-link" href="login.html">Already have an account? Login</a>
                 </form>
             </div>
         </section>
