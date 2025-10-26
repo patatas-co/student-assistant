@@ -478,7 +478,16 @@ footer a {
 
 footer a:hover,
 footer a:focus {
-    text-decoration: underline;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
 }
 
 .footer-content {
@@ -515,13 +524,6 @@ footer a:focus {
 .footer-links a:hover,
 .footer-links a:focus {
     color: var(--primary-600);
-}
-
-.footer-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    color: var(--neutral-500);
 }
 
 .back-to-top {
@@ -802,10 +804,6 @@ footer a:focus {
     .login-main {
         padding: 48px 0;
     }
-
-    .login-card {
-        padding: 32px;
-    }
 }
 
 @media (max-width: 560px) {
@@ -829,5 +827,10 @@ footer a:focus {
     .login-footer__inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .footer-links {
+        gap: 16px;
+        font-size: 0.85rem;
     }
 }
