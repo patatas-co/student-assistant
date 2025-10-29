@@ -1,8 +1,15 @@
 // dashboard.js
 document.addEventListener('DOMContentLoaded', () => {
-    const links   = document.querySelectorAll('.nav-link');
+    const sidebar = document.querySelector('.sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle');
+    const links = document.querySelectorAll('.nav-link');
     const content = document.getElementById('module-content');
-    const title   = document.getElementById('module-title');
+    const title = document.getElementById('module-title');
+
+    // Toggle sidebar collapse/expand
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+    });
 
     const modules = {
         profile: `
@@ -46,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div>
                 <h3>Messages</h3>
                 <div class="module-card" style="height:300px;overflow-y:auto;padding:16px;">
-                    <p><strong>You:</strong> I’ve completed the report. <small>10:30 AM</small></p>
+                    <p><strong>You:</strong> I've completed the report. <small>10:30 AM</small></p>
                     <p><strong>Dr. Santos:</strong> Excellent work! Approved. <small>11:15 AM</small></p>
                     <p><strong>You:</strong> Thank you! <small>11:16 AM</small></p>
                 </div>
@@ -89,22 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const module = link.dataset.module;
 
-            // active state
+            // Update active state
             links.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // title
+            // Update title
             title.textContent = link.querySelector('span').textContent;
 
-            // content
+            // Update content
             content.innerHTML = modules[module] || '<p>Module coming soon...</p>';
 
-            // init charts when needed
+            // Initialize charts when needed
             if (module === 'reports') setTimeout(initCharts, 100);
         });
     });
 
-    // load default
+    // Load default module
     document.querySelector('[data-module="profile"]').click();
 
     // ---------- Chart initialization ----------
