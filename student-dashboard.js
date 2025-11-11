@@ -100,6 +100,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    const likertOptions = [
+        { value: '1', label: '1 - Strongly Disagree' },
+        { value: '2', label: '2 - Disagree' },
+        { value: '3', label: '3 - Neutral' },
+        { value: '4', label: '4 - Agree' },
+        { value: '5', label: '5 - Strongly Agree' }
+    ];
+
+    const likertStatements = [
+        { id: 'clarity', text: 'Communicates course objectives clearly.' },
+        { id: 'feedback', text: 'Provides timely and constructive feedback.' },
+        { id: 'engagement', text: 'Encourages student participation and engagement.' },
+        { id: 'support', text: 'Offers support and guidance when needed.' }
+    ];
+    
+
     let evaluationState = null;
     let evaluationUI = null;
 
@@ -411,6 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const professorImage = getProfessorImage(professor);
         const professorDepartment = formatProfessorDepartment(professor, course);
         const professorCourses = formatProfessorCourses(professor, course);
+        const likertScaleMarkup = renderLikertScale();
 
         contentContainer.innerHTML = `
             <div class="module-card evaluation-summary">
@@ -427,27 +444,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="professor-class">Assigned to your class: ${studentProfile.courseNumber}</p>
                 </article>
                 <form class="module-card evaluation-form" id="evaluation-form" aria-labelledby="professor-identity-heading">
-                <div class="form-group">
-                    <label for="evaluation-rating">Overall Performance</label>
-                    <select id="evaluation-rating" required>
-                        <option value="">Select rating</option>
-                        <option value="excellent">Excellent</option>
-                        <option value="good">Good</option>
-                        <option value="satisfactory">Satisfactory</option>
-                        <option value="needs-improvement">Needs Improvement</option>
-                    </select>
+                <div class="form-group likert-group" role="group" aria-labelledby="likert-heading">
+                    <h3 id="likert-heading">Please rate the following statements</h3>
+                    <div class="likert-legend" aria-hidden="true">
+                        ${likertOptions.map(option => `<span>${option.label}</span>`).join('')}
+                    </div>
+                    <div class="likert-scale">
+                        ${likertScaleMarkup}
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="evaluation-strengths">Strengths</label>
                     <textarea id="evaluation-strengths" rows="3" placeholder="Highlight areas where the professor excels."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="evaluation-opportunities">Opportunities for Growth</label>
-                    <textarea id="evaluation-opportunities" rows="3" placeholder="Share constructive feedback to support improvement."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="evaluation-support">Support Needed</label>
-                    <textarea id="evaluation-support" rows="3" placeholder="Suggest resources or support that could help."></textarea>
+                    <label for="evaluation-opportunities">Area of Improvements</label>
+                    <textarea id="evaluation-opportunities" rows="3" placeholder="Share constructive feedback on areas to improve."></textarea>
                 </div>
                 <div class="evaluation-actions">
                     <button class="btn btn-outline" type="button" id="evaluation-reset">Reset</button>
@@ -460,21 +472,56 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = contentContainer.querySelector('#evaluation-form');
         const resetBtn = contentContainer.querySelector('#evaluation-reset');
 
-        form.addEventListener('submit', handleEvaluationSubmit);
+        const likertRadios = form.querySelectorAll('.likert-option input[type="radio"]');
+        const likertGroupState = {};
+
+        likertRadios.forEach(radio => {
+            radio.addEventListener('click', () => {
+                const currentSelection = likertGroupState[radio.name] || null;
+                if (currentSelection === radio) {
+                    radio.checked = false;
+                    likertGroupState[radio.name] = null;
+                } else {
+                    likertGroupState[radio.name] = radio;
+                }
+            });
+        });
+
+        form.addEventListener('submit', event => handleEvaluationSubmit(event, likertGroupState));
         resetBtn.addEventListener('click', () => {
             form.reset();
             const feedback = form.querySelector('.form-feedback');
             feedback.textContent = '';
+            Object.keys(likertGroupState).forEach(key => {
+                likertGroupState[key] = null;
+            });
         });
     }
 
-    function handleEvaluationSubmit(event) {
+    function handleEvaluationSubmit(event, likertGroupState) {
         event.preventDefault();
         const form = event.currentTarget;
         const feedback = form.querySelector('.form-feedback');
+        const incompleteStatements = likertStatements.filter(statement => {
+            const groupName = `likert-${statement.id}`;
+            return !form.querySelector(`input[name="${groupName}"]:checked`);
+        });
+
+        if (incompleteStatements.length) {
+            feedback.textContent = 'Please complete all rating statements before submitting.';
+            feedback.classList.add('form-feedback--error');
+            const firstIncomplete = form.querySelector(`input[name="likert-${incompleteStatements[0].id}"]`);
+            if (firstIncomplete) firstIncomplete.focus();
+            return;
+        }
+
         const course = getSelectedCourse();
         const professor = getSelectedProfessor(course);
         feedback.textContent = `Evaluation submitted for ${professor ? professor.name : 'selected professor'}. Thank you for your feedback.`;
+        feedback.classList.remove('form-feedback--error');
+        Object.keys(likertGroupState || {}).forEach(key => {
+            likertGroupState[key] = form.querySelector(`input[name="${key}"]:checked`) || null;
+        });
     }
 
     function getSelectedCourse() {
@@ -546,5 +593,25 @@ document.addEventListener('DOMContentLoaded', () => {
             return professor.courses.join(', ');
         }
         return course.name;
+    }
+
+    function renderLikertScale() {
+        return likertStatements.map(statement => `
+            <div class="likert-row">
+                <span class="likert-label">${statement.text}</span>
+                <div class="likert-options" role="radiogroup" aria-label="${statement.text}">
+                    ${likertOptions.map(option => {
+                        const inputId = `likert-${statement.id}-${option.value}`;
+                        return `
+                            <label class="likert-option" for="${inputId}">
+                                <input type="radio" name="likert-${statement.id}" id="${inputId}" value="${option.value}" />
+                                <span class="likert-value" aria-hidden="true">${option.value}</span>
+                                <span class="sr-only">${option.label}</span>
+                            </label>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `).join('');
     }
 });
