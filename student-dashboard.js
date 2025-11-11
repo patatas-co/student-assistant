@@ -6,12 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipElements = document.querySelectorAll('.tooltip-enabled');
     const content = document.getElementById('module-content');
     const title = document.getElementById('module-title');
+    const logoutLink = document.querySelector('.logout-btn');
 
     // Toggle sidebar collapse/expand
     toggleBtn.addEventListener('click', () => {
         sidebar.classList.toggle('collapsed');
         updateTooltipState();
     });
+
+    if (logoutLink) {
+        logoutLink.addEventListener('click', event => {
+            const shouldLogout = window.confirm('Are you sure you want to log out?');
+            if (!shouldLogout) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        });
+    }
 
     const studentProfile = {
         name: 'John Doe',
@@ -101,11 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const likertOptions = [
-        { value: '1', label: '1 - Strongly Disagree' },
-        { value: '2', label: '2 - Disagree' },
-        { value: '3', label: '3 - Neutral' },
-        { value: '4', label: '4 - Agree' },
-        { value: '5', label: '5 - Strongly Agree' }
+        { value: '1', label: '1 - Very Dissatisfied' },
+        { value: '2', label: '2 - Dissatisfied' },
+        { value: '3', label: '3 - Good' },
+        { value: '4', label: '4 - Satisfied' },
+        { value: '5', label: '5 - Very Satisfied' }
     ];
 
     const likertStatements = [
