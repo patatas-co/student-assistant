@@ -255,24 +255,27 @@ body {
     justify-content: center;
     gap: 12px;
     padding: 12px;
-    background: #ffeb3b;
-    color: #388e3c;
+    background: #f44336;
+    color: white;
     font-weight: 600;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s ease;
+    border: 2px solid white;
 }
 
 .sidebar.collapsed .logout-btn {
     gap: 0;
     padding: 12px 8px;
-    background: transparent;
-    border: 2px solid #e9eef6;
+    background: #f44336;
+    border: 2px solid white;
+    color: white;
 }
 
 .sidebar.collapsed .logout-btn:hover {
-    border-color: #ffeb3b;
-    background: #ffeb3b;
+    border-color: #d32f2f;
+    background: #d32f2f;
+    color: white;
 }
 
 .logout-icon {
@@ -295,7 +298,7 @@ body {
 }
 
 .logout-btn:hover {
-    background: #fdd835;
+    background: #d32f2f;
     transform: translateY(-1px);
 }
 
