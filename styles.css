@@ -549,6 +549,131 @@ footer a:focus {
     content: " ↑";
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    background: rgba(17, 24, 38, 0.65);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 50;
+}
+
+.modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal__dialog {
+    position: relative;
+    background: var(--neutral-50);
+    border-radius: var(--radius-lg);
+    width: min(640px, 100%);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    color: var(--neutral-900);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.05);
+}
+
+/* Modern scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.modal__dialog::-webkit-scrollbar {
+width: 6px;
+height: 6px;
+}
+
+.modal__dialog::-webkit-scrollbar-track {
+background: transparent;
+border-radius: 3px;
+margin: 8px 0; /* Adds space at top and bottom */
+}
+
+.modal__dialog::-webkit-scrollbar-thumb {
+background: rgba(0, 0, 0, 0.15);
+border-radius: 3px;
+transition: background 0.2s ease;
+min-height: 20px; /* Ensure thumb has a minimum height */
+}
+
+.modal__dialog::-webkit-scrollbar-thumb:hover {
+background: rgba(0, 0, 0, 0.25);
+}
+
+.modal__dialog h2 {
+    margin: 0 0 18px;
+    font-size: 1.6rem;
+}
+
+.modal__content h3 {
+    margin: 24px 0 12px;
+    font-size: 1.1rem;
+    color: var(--neutral-900);
+    font-weight: 600;
+}
+
+.modal__content h3:first-of-type {
+    margin-top: 8px;
+}
+
+.modal__content ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+}
+
+.modal__content li strong {
+    color: var(--neutral-900);
+}
+
+.modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(233, 238, 246, 0.6);
+    border: none;
+    color: var(--neutral-500);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+    background: rgba(56, 142, 60, 0.1);
+    color: var(--primary-600);
+}
+
+@media (max-width: 640px) {
+    .modal__dialog {
+        padding: 28px 24px 32px;
+        border-radius: var(--radius-md);
+    }
+
+    .modal__close {
+        top: 14px;
+        right: 14px;
+    }
+}
+
 .nav.is-open {
     position: absolute;
     top: calc(100% + 16px);

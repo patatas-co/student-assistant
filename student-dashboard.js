@@ -526,6 +526,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const selectedLikertValues = likertStatements.map(statement => {
+            const groupName = `likert-${statement.id}`;
+            const checkedInput = form.querySelector(`input[name="${groupName}"]:checked`);
+            return checkedInput ? checkedInput.value : null;
+        });
+
+        const uniqueLikertValues = new Set(selectedLikertValues.filter(value => value !== null));
+        if (uniqueLikertValues.size === 1) {
+            feedback.textContent = 'Your ratings are uniform. Please review and provide varied responses where appropriate before submitting.';
+            feedback.classList.add('form-feedback--error');
+            return;
+        }
+
         const course = getSelectedCourse();
         const professor = getSelectedProfessor(course);
         feedback.textContent = `Evaluation submitted for ${professor ? professor.name : 'selected professor'}. Thank you for your feedback.`;

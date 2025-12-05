@@ -16,7 +16,7 @@
 <body class="login-body">
     <header class="login-header">
         <div class="page-wrapper login-header__inner">
-            <a class="brand" href="index.html">
+            <a class="brand" href="landing-page.php">
                 <img src="favicon/android-chrome-192x192.png" alt="Student Assistant Hub" />
                 Student Assistant Hub
             </a>
