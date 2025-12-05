@@ -18,18 +18,7 @@
         </button>
         
         <div class="logo">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="6" y="10" width="52" height="44" rx="12" ry="12" fill="url(#grad)" />
-                <path d="M19 27h26" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                <path d="M19 34h18" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                <path d="M19 41h11" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                <defs>
-                    <linearGradient id="grad" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#4caf50" />
-                        <stop offset="1" stop-color="#388e3c" />
-                    </linearGradient>
-                </defs>
-            </svg>
+            <img src="favicon/favicon-32x32.png" alt="Professor Evaluation" />
             <span>Professor <br>Evaluation</br> </span>
         </div>
         

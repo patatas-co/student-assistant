@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
     <link rel="icon" href="favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <title>Kolehiyo ng Lungsod ng Dasmarinas Student Assistant Support Services</title>
+    <title>Dasmarinas Interated High School Faculty Evaluation</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,19 +16,8 @@
     <header>
         <div class="page-wrapper top-bar">
             <a class="brand" href="#hero">
-                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect x="6" y="10" width="52" height="44" rx="12" ry="12" fill="url(#grad)" />
-                    <path d="M19 27h26" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                    <path d="M19 34h18" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                    <path d="M19 41h11" stroke="#fff" stroke-width="3.4" stroke-linecap="round" />
-                    <defs>
-                        <linearGradient id="grad" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#4caf50" />
-                            <stop offset="1" stop-color="#388e3c" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-                KLD Student Assistant Hub
+                <img src="favicon/android-chrome-192x192.png" alt="Faculty Evaluation" />
+                Faculty Evaluation
             </a>
             <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
@@ -42,7 +31,7 @@
                     <li><a href="#workflow">Workflow</a></li>
                     <li><a href="#modules">Modules</a></li>
                 </ul>
-                <a class="login-btn" href="login.html">Login</a>
+                <a class="login-btn" href="login.php">Login</a>
             </nav>
         </div>
     </header>
