@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="favicon/android-chrome-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="favicon/android-chrome-512x512.png" sizes="512x512" type="image/png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <title>Student Assistant Login</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="login-body">
     <header class="login-header">
         <div class="page-wrapper login-header__inner">
-            <a class="brand" href="index.html">
-                <img src="favicon/favicon-32x32.png" alt="Student Assistant Hub" />
+            <a class="brand" href="landing-page.php">
+                <img src="favicon/android-chrome-192x192.png" alt="Student Assistant Hub" />
                 Student Assistant Hub
             </a>
         </div>
@@ -37,7 +44,7 @@
 
                     <button type="submit" class="primary-btn">Log In</button>
                     <a class="form-link" href="#">Forgot your password?</a>
-                    <a class="form-link" href="registration.html">Don't have an account? Register</a>
+                    <a class="form-link" href="registration.php">Don't have an account? Register</a>
                 </form>
             </div>
         </section>
