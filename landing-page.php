@@ -47,7 +47,7 @@
                     Where student feedback meets intelligent evaluation. A modern system designed to turn every response into meaningful, actionable insights.
                 </p>
                 <div class="button-group">
-                    <a class="primary-btn" href="#cta">Request Interactive Demo</a>
+                    <a class="primary-btn" href="registration.php">Get Started</a>
                     <a class="secondary-btn" href="#workflow">See How It Works</a>
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
         <section id="overview" class="page-wrapper">
             <div class="section-heading">
-                <h2>Purpose &amp; Objectives</h2>
+                <h2>Meet the Administrator &amp; Faculty Members</h2>
                 <p>Transform the manual student assistant program into a transparent, efficient, and data-driven experience for both students and administrators.</p>
             </div>
             <div class="split-section">
@@ -351,7 +351,7 @@
 
     <footer>
         <div class="page-wrapper">
-            <p>&copy; <span id="year"></span> Development of Web-based System for Student Assistant Application and Streamlined Student Support Services. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> Development of Web-based Faculty Evaluation for Dasmarinas Integrated High School. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#privacy" data-modal-target="privacy-modal">Privacy Policy</a>
                 <a href="#terms" data-modal-target="terms-modal">Terms of Service</a>
