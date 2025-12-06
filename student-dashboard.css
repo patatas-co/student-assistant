@@ -906,3 +906,229 @@ body {
         margin-left: 0;
     }
 }
+
+/* Settings Module Styles */
+.settings-summary {
+    display: grid;
+    gap: 24px;
+}
+
+.settings-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-card h2 {
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.settings-card h3 {
+    font-size: 1.2rem;
+    color: #111826;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9eef6;
+}
+
+.settings-helper {
+    color: #5c6675;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9eef6;
+    transition: box-shadow 0.3s ease;
+}
+
+.settings-section:hover {
+    box-shadow: 0 4px 16px rgba(56, 142, 60, 0.08);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.setting-item label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    flex: 1;
+}
+
+.setting-item label span {
+    flex: 1;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #4caf50;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.setting-item input[type="checkbox"]:focus-visible {
+    outline: 2px solid #4caf50;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.setting-item select {
+    min-width: 140px;
+    padding: 8px 12px;
+    border: 1px solid #e9eef6;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #374151;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.setting-item select:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+.setting-item select:hover {
+    border-color: #d1d5db;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #e9eef6;
+    flex-wrap: wrap;
+}
+
+.settings-actions .btn {
+    min-width: 140px;
+}
+
+/* Settings specific button styles */
+.settings-actions .btn-outline {
+    background: transparent;
+    border: 2px solid #6b7280;
+    color: #6b7280;
+}
+
+.settings-actions .btn-outline:hover {
+    background: #f3f4f6;
+    color: #374151;
+    border-color: #374151;
+    transform: translateY(-1px);
+}
+
+.settings-actions .btn-primary {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    color: white;
+    border: none;
+}
+
+.settings-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+/* Security section specific styles */
+.settings-card:has(h3) .settings-section {
+    gap: 12px;
+}
+
+.settings-card:has(h3) .setting-item {
+    padding: 8px 0;
+}
+
+.settings-card:has(h3) .setting-item .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Settings form feedback */
+.settings-card .form-feedback {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    background: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.settings-card .form-feedback--error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #b91c1c;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Responsive settings */
+@media (max-width: 768px) {
+    .settings-summary {
+        gap: 20px;
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .setting-item label {
+        width: 100%;
+    }
+    
+    .setting-item select {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .settings-actions {
+        flex-direction: column;
+    }
+    
+    .settings-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-section {
+        padding: 16px;
+    }
+    
+    .settings-card h2 {
+        font-size: 1.4rem;
+    }
+    
+    .settings-card h3 {
+        font-size: 1.1rem;
+    }
+}

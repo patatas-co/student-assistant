@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modules = {
         profile: renderProfileModule,
-        evaluate: renderEvaluateModuleShell
+        evaluate: renderEvaluateModuleShell,
+        settings: renderSettingsModule
     };
 
     const evaluationCourses = [
@@ -209,6 +210,153 @@ document.addEventListener('DOMContentLoaded', () => {
                 </article>
             </section>
         `;
+    }
+
+    function renderSettingsModule() {
+        evaluationState = null;
+        evaluationUI = null;
+
+        content.innerHTML = `
+            <section class="settings-summary">
+                <article class="module-card settings-card">
+                    <h2>Account Settings</h2>
+                    <p class="settings-helper">Manage your account preferences and security settings.</p>
+                    
+                    <div class="settings-section">
+                        <h3>Notifications</h3>
+                        <div class="setting-item">
+                            <label for="email-notifications">
+                                <input type="checkbox" id="email-notifications" checked>
+                                <span>Email notifications for evaluation reminders</span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="evaluation-complete">
+                                <input type="checkbox" id="evaluation-complete" checked>
+                                <span>Notify when evaluation period ends</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Privacy</h3>
+                        <div class="setting-item">
+                            <label for="profile-visibility">
+                                <input type="checkbox" id="profile-visibility" checked>
+                                <span>Show profile to professors</span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="anonymous-evaluations">
+                                <input type="checkbox" id="anonymous-evaluations" checked>
+                                <span>Submit evaluations anonymously</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Appearance</h3>
+                        <div class="setting-item">
+                            <label for="theme">Theme</label>
+                            <select id="theme">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                                <option value="auto">Auto</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="language">Language</label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="fr">Français</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="btn btn-outline" type="button" id="settings-reset">Reset to Defaults</button>
+                        <button class="btn btn-primary" type="button" id="settings-save">Save Changes</button>
+                    </div>
+                    
+                    <p class="form-feedback" aria-live="polite"></p>
+                </article>
+
+                <article class="module-card settings-card">
+                    <h3>Security</h3>
+                    <div class="settings-section">
+                        <div class="setting-item">
+                            <button class="btn btn-outline" type="button" id="change-password">Change Password</button>
+                        </div>
+                        <div class="setting-item">
+                            <button class="btn btn-outline" type="button" id="two-factor">Enable Two-Factor Authentication</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        `;
+
+        // Add event listeners for settings
+        const saveBtn = content.querySelector('#settings-save');
+        const resetBtn = content.querySelector('#settings-reset');
+        const feedback = content.querySelector('.form-feedback');
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', () => {
+                // Simulate saving settings
+                feedback.textContent = 'Settings saved successfully!';
+                feedback.classList.remove('form-feedback--error');
+                
+                // Clear feedback after 3 seconds
+                setTimeout(() => {
+                    feedback.textContent = '';
+                }, 3000);
+            });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset all settings to defaults?')) {
+                    // Reset all form elements
+                    const checkboxes = content.querySelectorAll('input[type="checkbox"]');
+                    const selects = content.querySelectorAll('select');
+                    
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = checkbox.id === 'email-notifications' || checkbox.id === 'evaluation-complete' || checkbox.id === 'profile-visibility' || checkbox.id === 'anonymous-evaluations';
+                    });
+                    
+                    selects.forEach(select => {
+                        if (select.id === 'theme') select.value = 'light';
+                        if (select.id === 'language') select.value = 'en';
+                    });
+                    
+                    feedback.textContent = 'Settings reset to defaults';
+                    feedback.classList.remove('form-feedback--error');
+                    
+                    setTimeout(() => {
+                        feedback.textContent = '';
+                    }, 3000);
+                }
+            });
+        }
+
+        // Security button handlers
+        const changePasswordBtn = content.querySelector('#change-password');
+        const twoFactorBtn = content.querySelector('#two-factor');
+
+        if (changePasswordBtn) {
+            changePasswordBtn.addEventListener('click', () => {
+                feedback.textContent = 'Password change feature coming soon...';
+                feedback.classList.remove('form-feedback--error');
+            });
+        }
+
+        if (twoFactorBtn) {
+            twoFactorBtn.addEventListener('click', () => {
+                feedback.textContent = 'Two-factor authentication feature coming soon...';
+                feedback.classList.remove('form-feedback--error');
+            });
+        }
     }
 
     function renderEvaluateModuleShell() {
