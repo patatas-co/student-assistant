@@ -54,13 +54,157 @@
         <div class="page-wrapper">
             <p>&copy; <span id="year"></span> Development of Web-based System for Student Assistant Application and Streamlined Student Support Services. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
+                <a href="#" data-modal-target="privacy-modal">Privacy Policy</a>
+                <a href="#" data-modal-target="terms-modal">Terms of Service</a>
                 <a href="#cookies">Cookie Policy</a>
             </div>
         </div>
     </footer>
 
     <script src="app.js"></script>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" aria-hidden="true">
+        <div class="modal__dialog" role="document">
+            <button type="button" class="modal__close" data-modal-close aria-label="Close privacy policy dialog">&times;</button>
+            <h2 id="privacy-modal-title">Privacy Policy</h2>
+            <div class="modal__content">
+                <p>Welcome to the Intelligent Web-Based Faculty Evaluation and Feedback System of Kolehiyo ng Lungsod ng Dasmariñas. This Privacy Policy explains how your information is collected, used, and protected when you access and use this system. By continuing to use the system, you agree to the terms outlined below.</p>
+<br></br>
+                <h3>1. Information We Collect</h3>
+                <p>We only collect the minimum information necessary to verify your identity and allow you to access the system. This includes:</p>
+                <p><strong>Student Information:</strong></p>
+                <ul>
+                    <li>Student ID number</li>
+                    <li>Name (for verification only)</li>
+                    <li>Course, year level, and enrolled subjects</li>
+                    <li>Securely hashed login credentials</li>
+                </ul>
+                <p><strong>Faculty Information:</strong></p>
+                <ul>
+                    <li>Faculty ID number</li>
+                    <li>Assigned courses and departments</li>
+                    <li>Securely hashed login credentials</li>
+                </ul>
+                <p><strong>System-Generated Data:</strong></p>
+                <ul>
+                    <li>Evaluation responses (ratings and comments)</li>
+                    <li>Sentiment analysis results</li>
+                    <li>Login timestamps, submission timestamps, and basic system logs</li>
+                </ul>
+<br></br>
+                <p><em>Important: Your identity is not attached to your evaluation. All evaluations are stored anonymously.</em></p>
+<br></br>
+                <h3>2. How We Use Your Data</h3>
+                <p>Your information is used solely to:</p>
+                <ul>
+                    <li>Verify eligibility for submitting faculty evaluations</li>
+                    <li>Generate anonymous evaluation reports</li>
+                    <li>Run machine learning–based sentiment analysis on comments</li>
+                    <li>Support faculty performance improvement and institutional decision-making</li>
+                    <li>Provide secure access and maintain system functionality</li>
+                </ul>
+                <p>We do not use your data for advertising, selling, or sharing with external parties.</p>
+<br></br>
+                <h3>3. Anonymity of Evaluation Responses</h3>
+                <p>To ensure privacy and fairness:</p>
+                <ul>
+                    <li>Your identity is detached once you begin the evaluation</li>
+                    <li>No identifiable information is stored together with your submitted responses</li>
+                    <li>Faculty will only see anonymous summaries, not individual submissions</li>
+                    <li>Administrators cannot trace any evaluation back to a specific student</li>
+                </ul>
+                <p>This process follows ethical standards for academic evaluations.</p>
+<br></br>
+                <h3>4. Data Protection and Security</h3>
+                <p>The system uses multiple security measures, including:</p>
+                <ul>
+                    <li>Encrypted passwords (bcrypt/Argon2)</li>
+                    <li>Enforced HTTPS / SSL communication</li>
+                    <li>Secure, access-restricted database</li>
+                    <li>Role-based access controls (student, faculty, admin)</li>
+                    <li>Daily backups and audit logs</li>
+                    <li>Anonymized storage of evaluation responses</li>
+                    <li>Server firewalls and security patches</li>
+                </ul>
+                <p>Only authorized administrators can access aggregate evaluation data.</p>
+<br></br>
+                <h3>5. Data Sharing</h3>
+                <p>We do not share your personal information with:</p>
+                <ul>
+                    <li>Students</li>
+                    <li>Faculty members (except anonymized summaries)</li>
+                    <li>External companies</li>
+                    <li>Third-party organizations</li>
+                </ul>
+                <p>Data is only disclosed if required by law or authorized by the institution.</p>
+<br></br>
+                <h3>6. Data Retention</h3>
+                <ul>
+                    <li>User account information is retained while your account remains active.</li>
+                    <li>Evaluation data is stored long-term but only in anonymous form.</li>
+                    <li>Raw comments may be archived based on institutional data retention policies.</li>
+                </ul>
+<br></br>
+                <h3>7. Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access and update your account information</li>
+                    <li>Request correction of inaccurate personal data</li>
+                    <li>Contact the administrator for system-related concerns</li>
+                    <li>Request deletion of your account (subject to institutional guidelines)</li>
+                </ul>
+                <p>Because evaluation responses are anonymous, they cannot be traced or deleted individually.</p>
+<br></br>
+                <h3>8. Cookies</h3>
+                <p>The system uses essential session cookies to maintain secure login and improve functionality. We do not use tracking, marketing, or advertising cookies.</p>
+<br></br>
+                <h3>9. Changes to This Policy</h3>
+                <p>This Privacy Policy may be updated periodically. Any updates will be posted on this page with a revised "Last Updated" date.</p>
+<br></br>
+                <h3>10. Contact Us</h3>
+                <p>For questions or concerns about this Privacy Policy, please contact:</p>
+                <p>Office of the System Administrator<br>
+                Kolehiyo ng Lungsod ng Dasmariñas<br>
+                Email: <a href="mailto:privacy@dihs.edu.ph">privacy@dihs.edu.ph</a><br>
+                Phone: [Insert contact number]</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" aria-hidden="true">
+        <div class="modal__dialog" role="document">
+            <button type="button" class="modal__close" data-modal-close aria-label="Close terms of service dialog">&times;</button>
+            <h2 id="terms-modal-title">Terms of Service</h2>
+            <div class="modal__content">
+                <p>By accessing and using the Faculty Evaluation System, you agree to comply with and be bound by the following terms and conditions.</p>
+                
+                <h3>1. Acceptance of Terms</h3>
+                <p>Your use of this system constitutes acceptance of these terms. If you do not agree, please discontinue use immediately.</p>
+                
+                <h3>2. User Responsibilities</h3>
+                <ul>
+                    <li><strong>Accurate Information:</strong> You agree to provide truthful and accurate information in all evaluations and submissions.</li>
+                    <li><strong>Account Security:</strong> You are responsible for maintaining the confidentiality of your login credentials.</li>
+                    <li><strong>Appropriate Use:</strong> The system must be used only for its intended educational and evaluation purposes.</li>
+                </ul>
+                
+                <h3>3. Prohibited Activities</h3>
+                <p>Users may not attempt to manipulate evaluation results, submit false information, access unauthorized areas of the system, or interfere with system operations.</p>
+                
+                <h3>4. Data Usage</h3>
+                <p>Evaluation data may be used for institutional improvement, academic reporting, and compliance purposes as outlined in our Privacy Policy.</p>
+                
+                <h3>5. System Availability</h3>
+                <p>While we strive for continuous availability, the system may be temporarily unavailable for maintenance or updates without prior notice.</p>
+                
+                <h3>6. Modifications</h3>
+                <p>These terms may be updated periodically. Continued use of the system after changes constitutes acceptance of the revised terms.</p>
+                
+                <p>For questions about these terms, contact us at <a href="mailto:support@dihs.edu.ph">support@dihs.edu.ph</a>.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
